@@ -276,24 +276,27 @@ big and brown
 	No hi ha distinció entre variables i referències cap a elles,
     d'aquesta manera no hi ha problemes de dereferenciació.
 	\begin{verbatim}
-my $a = [ { foo => [1, 2, 3] } ];
+my $a = { foo => [1, 2, 3] }
 	\end{verbatim}
 	\begin{columns}[t]
 		\begin{column}{0.5\textwidth}
 			\begin{block}{Perl 5}
 				\begin{verbatim}
-say $a->[0]->{foo}->[1] # 2
+push @{ $a->{foo} }, 4
 				\end{verbatim}
 			\end{block}
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\begin{block}{Perl 6}
 				\begin{verbatim}
-say $a[0]<foo>[1] # 2
+$a<foo>.push: 4
+# o $a<foo>.push(4)
 				\end{verbatim}
 			\end{block}
 		\end{column}
 	\end{columns}
+{\scriptsize(Durant la presentació l'exemple de dalt era una mica diferent,
+s'ha canviat per subratllar-ne els beneficis)}
 \end{frame}
 			\subsection{Funcions i paràmetres}
 \begin{frame}[fragile]{Funcions i paràmetres}
