@@ -273,24 +273,27 @@ big and brown
 	Nie ma rozróżnienia na zmienne i referencje do nich,
 	a więc nie ma już problemów z dereferowaniem tychże.
 	\begin{verbatim}
-my $a = [ { foo => [1, 2, 3] } ];
+my $a = { foo => [1, 2, 3] }
 	\end{verbatim}
 	\begin{columns}[t]
 		\begin{column}{0.5\textwidth}
 			\begin{block}{Perl 5}
 				\begin{verbatim}
-say $a->[0]->{foo}->[1] # 2
+push @{ $href->{foo} }, 4
 				\end{verbatim}
 			\end{block}
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\begin{block}{Perl 6}
 				\begin{verbatim}
-say $a[0]<foo>[1] # 2
+$a<foo>.push: 4
+# albo $a<foo>.push(4)
 				\end{verbatim}
 			\end{block}
 		\end{column}
 	\end{columns}
+{\scriptsize(Podczas prezentacji podany przykład był nieco inny,
+zmieniłem go aby podkreślić efekt)}
 \end{frame}
 			\subsection{Funkcje i parametry}
 \begin{frame}[fragile]{Funkcje i parametry}
